@@ -23,4 +23,7 @@ jobs:
     - name: Build JRE
       run: |
         jlink --no-header-files --no-man-pages --compress=2 --strip-debug --add-modules java.datatransfer,java.desktop,java.logging,java.scripting,java.sql,java.xml,jdk.jsobject,jdk.unsupported,jdk.unsupported.desktop,jdk.xml.dom --output jre
+        tar cvzf jre.tar.gz jre/
+        rm -rf jre
         pwd
+        ls
