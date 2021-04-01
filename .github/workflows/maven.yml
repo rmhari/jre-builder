@@ -33,6 +33,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        source: "jre.tar.gz"
+        source: "/*.tar.gz"
         target: ${{ secrets.TARGET_DIR }}
         strip_components: 1
