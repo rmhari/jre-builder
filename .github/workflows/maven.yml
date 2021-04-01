@@ -24,7 +24,6 @@ jobs:
       run: |
         jlink --no-header-files --no-man-pages --compress=2 --strip-debug --add-modules java.datatransfer,java.desktop,java.logging,java.scripting,java.sql,java.xml,jdk.jsobject,jdk.unsupported,jdk.unsupported.desktop,jdk.xml.dom --output jre
         tar cvzf jre.tar.gz jre/
-        rm -rf jre
         pwd
         ls
     - name: Copy Artifacts
@@ -33,6 +32,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        source: jre.tar.gz
+        source: "jre"
         target: ${{ secrets.TARGET_DIR }}
         strip_components: 1
