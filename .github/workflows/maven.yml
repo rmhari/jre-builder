@@ -27,3 +27,12 @@ jobs:
         rm -rf jre
         pwd
         ls
+    - name: Copy Artifacts
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        source: "jre.tar.gz"
+        target: ${{ secrets.TARGET_DIR }}
+        strip_components: 1
