@@ -41,8 +41,11 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
+        target: ${{ secrets.TARGET_DIR }}
         script: |
-          cd /home/ubuntu/Softwares
+          cd ${{ secrets.TARGET_DIR }}
+          ls
+          pwd
           tar xvf jre.tar.gz jre
           JPID=$(ps -ef | grep java | grep -v grep | awk '{print $2}') 
           JPCMD=$(ps -ef | grep java | grep -v grep | awk '{print $8 " " $9 " " $10}')
