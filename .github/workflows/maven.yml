@@ -42,17 +42,10 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         script: |
-        cd /home/ubuntu/Softwares
-        tar xvf jre.tar.gz jre
-        JPID=$(ps -ef | grep java | grep -v grep | awk '{print $2}') 
-        JPCMD=$(ps -ef | grep java | grep -v grep | awk '{print $8 " " $9 " " $10}')
-        kill -9 $JPID
-        eval "nohup $JPCMD &"
-        rm -rf jre
-
-        
-
-
-
-
-
+          cd /home/ubuntu/Softwares
+          tar xvf jre.tar.gz jre
+          JPID=$(ps -ef | grep java | grep -v grep | awk '{print $2}') 
+          JPCMD=$(ps -ef | grep java | grep -v grep | awk '{print $8 " " $9 " " $10}')
+          kill -9 $JPID
+          eval "nohup $JPCMD &"
+          rm -rf jre
