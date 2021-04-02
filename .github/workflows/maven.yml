@@ -42,15 +42,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         target: ${{ secrets.TARGET_DIR }}
-        script: |
-          cd ${{ secrets.TARGET_DIR }}
-          export JRE_HOME=${{ secrets.TARGET_DIR }}/jre
-          ls
-          pwd
+        script:
           tar xvf jre.tar.gz jre
-          JPID=$(ps -ef | grep java | grep -v grep | awk '{print $2}') 
-          JPCMD=$(ps -ef | grep java | grep -v grep | awk '{print $8 " " $9 " " $10}')
-          echo $JPCMD
-          kill -9 $JPID
-          eval "nohup $JPCMD &"
-          rm -rf jre
