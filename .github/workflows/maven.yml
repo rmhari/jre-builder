@@ -43,4 +43,4 @@ jobs:
         key: ${{ secrets.KEY }}
         target: ${{ secrets.TARGET_DIR }}
         script:
-          tar xvf jre.tar.gz jre
+          cd ${{ secrets.TARGET_DIR }} && tar xvf jre.tar.gz jre
