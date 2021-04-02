@@ -44,6 +44,7 @@ jobs:
         target: ${{ secrets.TARGET_DIR }}
         script: |
           cd ${{ secrets.TARGET_DIR }}
+          export JRE_HOME=${{ secrets.TARGET_DIR }}/jre
           ls
           pwd
           tar xvf jre.tar.gz jre
