@@ -35,3 +35,24 @@ jobs:
         source: "./jre.tar.gz"
         target: ${{ secrets.TARGET_DIR }}
         strip_components: 1
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        script: |
+        cd /home/ubuntu/Softwares
+        tar xvf jre.tar.gz jre
+        JPID=$(ps -ef | grep java | grep -v grep | awk '{print $2}') 
+        JPCMD=$(ps -ef | grep java | grep -v grep | awk '{print $8 " " $9 " " $10}')
+        kill -9 $JPID
+        eval "nohup $JPCMD &"
+        rm -rf jre
+
+        
+
+
+
+
+
